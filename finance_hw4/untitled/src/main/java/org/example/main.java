@@ -143,8 +143,8 @@ public class Main {
                                 transactionResultSet.getInt("TransactionID"),
                                 transactionResultSet.getInt("UserID"),
                                 transactionResultSet.getInt("CategoryID"),
-                                transactionResultSet.getBigDecimal("Amount"),
-                                transactionResultSet.getDate("TransactionDate"),
+                                transactionResultSet.getString("Amount"),
+                                transactionResultSet.getString("TransactionDate"),
                                 transactionResultSet.getString("Description")
                         };
                         transactionModel.addRow(row);
@@ -191,8 +191,8 @@ public class Main {
                         transactionResultSet.getInt("TransactionID"),
                         transactionResultSet.getInt("UserID"),
                         transactionResultSet.getInt("CategoryID"),
-                        transactionResultSet.getBigDecimal("Amount"),
-                        transactionResultSet.getDate("TransactionDate"),
+                        transactionResultSet.getString("Amount"),
+                        transactionResultSet.getString("TransactionDate"),
                         transactionResultSet.getString("Description")
                 };
                 transactionModel.addRow(row);
@@ -326,7 +326,7 @@ public class Main {
                 int transactionID = Integer.parseInt(transactionIDField.getText());
                 int userID = Integer.parseInt(userIDField.getText());
                 int categoryID = Integer.parseInt(categoryIDField.getText());
-                BigDecimal amount = new BigDecimal(amountField.getText());
+                String amount = amountField.getText();
                 String date = dateField.getText();
                 String description = descriptionField.getText();
 
@@ -336,7 +336,7 @@ public class Main {
                     statement.setInt(1, transactionID);
                     statement.setInt(2, userID);
                     statement.setInt(3, categoryID);
-                    statement.setBigDecimal(4, amount);
+                    statement.setString(4, amount);
                     statement.setString(5, date);
                     statement.setString(6, description);
                     statement.executeUpdate();
